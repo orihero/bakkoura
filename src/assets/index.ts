@@ -19,11 +19,19 @@ import messengerIcon from './svg/messenger.svg';
 import todoIcon from './svg/to do icon.svg';
 import tabbarBg from './svg/tabbarBg.svg';
 import arrowRight from './svg/arrowRight.svg';
+import arrowLeft from './svg/arrowLeft.svg';
 import dotOpenBar from './svg/dotOpenBar.svg';
 import timerIcon from './svg/timers icon.svg';
 import projectTimerIcon from './svg/pt icon.svg';
 import worldTimeIcon from './svg/wt icon.svg';
 import stopWatchIcon from './svg/stpw icon.svg';
+import borderBg from './svg/borderBg.svg';
+import bellBlue from './svg/bellBlue.svg';
+import bellGreen from './svg/bellGreen.svg';
+import bellBlueLeft from './svg/bellBlueLeft.svg';
+import timerLogo from './svg/timerLogo.svg';
+import calendarIcon from './svg/calendar.svg';
+import dateMenu from './svg/dateMenu.svg';
 
 export const Images = {
   Svg: {
@@ -53,6 +61,14 @@ export const Images = {
     projectTimerIcon,
     worldTimeIcon,
     stopWatchIcon,
+    borderBg,
+    bellBlue,
+    bellBlueLeft,
+    bellGreen,
+    timerLogo,
+    arrowLeft,
+    calendarIcon,
+    dateMenu,
   },
 };
 
@@ -62,5 +78,8 @@ export const BG = {
   welcome3: require('./images/welcome3.png'),
   welcome4: require('./images/welcome4.png'),
   welcomeBg: require('./images/welcomeBg.png'),
+  borderBg: require('./images/borderBg.png'),
   light: require('./images/light.png'),
+  bottomSheetBg: require('./images/bottomSheetBg.png'),
+  duringTimerBg: require('./images/duringTimerBg.png'),
 };

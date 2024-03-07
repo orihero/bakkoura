@@ -17,13 +17,15 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   borderContainer: {
-    borderTopWidth: 2,
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderColor: '#43371F',
+    // borderTopWidth: 2,
+    // borderLeftWidth: 2,
+    // borderRightWidth: 2,
+    // borderColor: '#43371F',
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    overflow: 'hidden',
     height: '100%',
+    width: '100%',
     backgroundColor: '#0D0D0D',
   },
   buttonContainer: {
@@ -31,7 +33,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
     width: '25%',
-    paddingTop: 25,
+    paddingTop: 20,
   },
 
   dotMenu: {

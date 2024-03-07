@@ -1,41 +1,55 @@
+import {observer} from 'mobx-react-lite';
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, TouchableHighlightBase} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
+import useRootStore from '../../hooks/useRootStore';
 import ButtonComp from '../Button/Button';
 import RN from '../RN';
-type Props = {};
+type Props = {
+  title?: string;
+  _title?: string;
+  isSwitch?: boolean;
+  handlePress?: () => void;
+  back?: boolean;
+};
 
-const SwitchContain: React.FC<Props> = ({}) => {
-  const [toggle, setToggle] = React.useState(false);
+const SwitchContain: React.FC<Props> = ({
+  title,
+  isSwitch,
+  handlePress,
+  back,
+  _title,
+}) => {
   const translateX = useSharedValue(0);
 
-  let isLeft = true;
-  const handlePress = () => {
-    if (isLeft) {
-      translateX.value = withSpring(0);
+  const handlePresss = () => {
+    if (back) {
+      translateX.value += 20;
     } else {
-      translateX.value = withSpring(20);
+      translateX.value -= 20;
     }
-    isLeft = !isLeft;
+    back = !back;
   };
 
-  const animatedStyles = useAnimatedStyle(() => {
-    return {
-      transform: [{translateX: translateX.value}],
-    };
-  });
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{translateX: withSpring(translateX.value)}],
+  }));
 
   return (
-    <RN.TouchableOpacity style={styles.container} onPress={handlePress}>
+    <RN.TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        handlePresss(), handlePress();
+      }}>
       <RN.View style={[styles.box]}>
         <Animated.View style={[styles.animatedBox, animatedStyles]}>
           <LinearGradient colors={['#ECC271', '#7F642E']} style={styles.linear}>
-            <RN.Text style={styles.title}>Back</RN.Text>
+            <RN.Text style={styles.title}>{back ? title : _title}</RN.Text>
           </LinearGradient>
         </Animated.View>
       </RN.View>
@@ -43,16 +57,15 @@ const SwitchContain: React.FC<Props> = ({}) => {
   );
 };
 
-export default SwitchContain;
+export default observer(SwitchContain);
 
 const styles = StyleSheet.create({
   container: {
     width: 120,
-    marginTop: 50,
   },
   box: {
     backgroundColor: '#121212',
-    width: 90,
+    width: 95,
     height: 22,
     borderRadius: 20,
   },
@@ -69,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: '#ECC271',
     borderWidth: 1,
-    width: 70,
+    width: 75,
     top: -5,
     alignItems: 'center',
   },

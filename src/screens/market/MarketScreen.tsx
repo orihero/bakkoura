@@ -1,14 +1,23 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import LinearContainer from '../../components/LinearContainer/LinearContainer';
 import RN from '../../components/RN';
+import TextView from '../../components/Text/Text';
 
 const MarketScreen = () => {
-  return (
-    <RN.View>
-      <RN.Text>MarketScreen</RN.Text>
-    </RN.View>
-  );
+  return <LinearContainer children={<RN.Text>HEllo</RN.Text>} />;
 };
 
 export default MarketScreen;
 
-const styles = RN.StyleSheet.create({});
+const styles = StyleSheet.create({
+  gradient: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

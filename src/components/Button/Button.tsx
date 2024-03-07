@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ECC271',
     // paddingHorizontal: 20,
-    paddingVertical: 15,
     borderRadius: 40,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -37,6 +36,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
+    paddingVertical: 15,
+    // backgroundColor: 'red',
   },
   title: {
     fontSize: 18,
@@ -47,6 +48,6 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
     right: 10,
-    justifyContent: 'center',
+    top: 10,
   },
 });

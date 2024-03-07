@@ -1,5 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React, {FC} from 'react';
+import RN from '../../components/RN';
 import {bottomTabBarOptions} from './BottomTabNavigation.constants';
 import MyTabbar from './components/MyTabbar';
 

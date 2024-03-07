@@ -6,6 +6,7 @@ import RN from '../../components/RN';
 import SwitchBtn from '../../components/SwitchBtn/SwitchBtn';
 import SwitchContain from '../../components/SwitchContain/SwitchContain';
 import TabbarItem from '../../components/TabbarItem/TabbarItem';
+import TextView from '../../components/Text/Text';
 
 const HomeScreen = () => {
   return (
@@ -13,8 +14,7 @@ const HomeScreen = () => {
       style={styles.gradient}
       colors={['#323D45', '#1B2024', '#0C0C0C']}>
       <View style={styles.container}>
-        <SwitchBtn title="Work" icon={<Images.Svg.sendIcon />} />
-        <SwitchContain />
+        <TextView title="Home screen" />
       </View>
     </LinearGradient>
   );
