@@ -3,6 +3,7 @@ import HomeScreen from '../../screens/home/HomeScreen';
 import MessengerScreen from '../../screens/messenger/MessengerScreen';
 import ProjectTimer from '../../screens/projectTimer/ProjectTimer';
 import StopWatch from '../../screens/stopWatch/StopWatch';
+import StressTest from '../../screens/stressTest/StressTest';
 import TimerScreen from '../../screens/timers/TimerScreen';
 import ToDoTimer from '../../screens/todoTimer/ToDoTimer';
 import WorldTime from '../../screens/worldTime/WorldTime';
@@ -29,9 +30,9 @@ export const bottomTabBarOptions = {
     },
     {
       index: 2,
-      tabName: APP_ROUTES.MESSENGER,
-      component: MessengerScreen,
-      buttonLabel: 'Messenger',
+      tabName: APP_ROUTES.STRESS_TEST,
+      component: StressTest,
+      buttonLabel: 'Stress Test',
     },
     {
       index: 3,

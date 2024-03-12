@@ -16,6 +16,7 @@ import NewPasswordScreen from '../screens/auth/NewPassword/NewPasswordScreen';
 import {observer} from 'mobx-react-lite';
 import useRootStore from '../hooks/useRootStore';
 import LanguageScreen from '../screens/LanguageScreen/LanguageScreen';
+import StressTestDuring from '../screens/stressTest/StressTestDuring/StressTestDuring';
 
 const Stack = createStackNavigator();
 
@@ -119,6 +120,13 @@ const AppNavigator = () => {
         <Stack.Screen
           name={APP_ROUTES.LANGUAGE_SCREEN}
           component={LanguageScreen}
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name={APP_ROUTES.STRESS_TEST_DURING}
+          component={StressTestDuring}
           options={{
             headerTitleAlign: 'center',
           }}
