@@ -32,6 +32,10 @@ import bellBlueLeft from './svg/bellBlueLeft.svg';
 import timerLogo from './svg/timerLogo.svg';
 import calendarIcon from './svg/calendar.svg';
 import dateMenu from './svg/dateMenu.svg';
+import panda from './svg/panda.svg';
+import yellowPanda from './svg/yellowPanda.svg';
+import yellowPanda1 from './svg/yellowPanda1.svg';
+import stressTest from './svg/stressTest.svg';
 
 export const Images = {
   Svg: {
@@ -69,6 +73,13 @@ export const Images = {
     arrowLeft,
     calendarIcon,
     dateMenu,
+    panda,
+    yellowPanda,
+    yellowPanda1,
+    stressTest,
+  },
+  Img: {
+    pandaTimer: require('./images/pandaTimer.png'),
   },
 };
 

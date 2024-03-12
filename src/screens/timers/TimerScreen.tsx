@@ -38,7 +38,7 @@ const TimerScreen = () => {
     }
   };
 
-  const renderFirstTimerStatus = React.useCallback(() => {
+  const renderFirstTimerStatus = React.useMemo(() => {
     if (timerStatus.reset) {
       return (
         <FirstTimerDuring
@@ -51,7 +51,7 @@ const TimerScreen = () => {
     }
   }, [timerStatus.reset, timerStatus.stop]);
 
-  const renderSecondTimerStatus = React.useCallback(() => {
+  const renderSecondTimerStatus = React.useMemo(() => {
     if (timerStatus.reset) {
       return (
         <SecondTimerDuring
@@ -117,8 +117,8 @@ const TimerScreen = () => {
           )}
           <RN.View style={styles.timerContent}>
             {timerStatus.isFirst
-              ? renderFirstTimerStatus()
-              : renderSecondTimerStatus()}
+              ? renderFirstTimerStatus
+              : renderSecondTimerStatus}
           </RN.View>
           <RN.View style={styles.startStop}>
             <StartBtn text="Reset" onPress={resetTimer} />

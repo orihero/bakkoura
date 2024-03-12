@@ -61,7 +61,7 @@ export default observer(SwitchContain);
 
 const styles = StyleSheet.create({
   container: {
-    width: 120,
+    width: 95,
   },
   box: {
     backgroundColor: '#121212',

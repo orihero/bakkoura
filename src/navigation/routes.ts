@@ -16,18 +16,25 @@ export enum APP_ROUTES {
   BOTTOM_NAVIGATION = 'AppBottomNavigation',
   MAINSCREEN = 'MainScreen',
 
+  //bottomsheet screens
   HOME_START = 'HomeScreen',
   MARKET = 'MarketScreen',
   MESSENGER = 'MessengerScreen',
   TODOTIMER = 'ToDoTimerScreen',
 
   TIMER = 'TimerScreen',
+  STRESS_TEST = 'StressTest',
   PROJECT_TIMER = 'ProjectTimer',
   WORLD_TIME = 'WorldTime',
   STOP_WATCH = 'StopWatch',
+
+  //calendar screens
   EVENTS_SCREEN = 'EventScreen',
   NEW_EVENT = 'NewEventScreen',
   REPEAT = 'RepeatScreen',
   DATE_SCREEN = 'DateScreen',
   TIME_SCREEN = 'TimeScreen',
+
+  //stress test screens
+  STRESS_TEST_DURING = 'StressTestDuring',
 }
