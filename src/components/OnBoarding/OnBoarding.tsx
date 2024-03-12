@@ -11,6 +11,7 @@ import {OnBoardingData} from '../../utils/onBoardingData';
 import ButtonComp from '../Button/Button';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
+import {APP_ROUTES} from '../../navigation/routes';
 
 const OnBoarding = () => {
   const navigation = useNavigation();
@@ -35,9 +36,11 @@ const OnBoarding = () => {
                   <Text style={styles.description}>{e.timeText}</Text>
                   {e.btnTitle ? (
                     <ButtonComp
-                      onPress={() => navigation.navigate('TimerScreen')}
+                      onPress={() =>
+                        navigation.navigate(APP_ROUTES.AUTH_SIGN_IN as never)
+                      }
                       title="Let’s start!"
-                      icon={<e.eye />}
+                      // icon={<e.eye />}
                     />
                   ) : null}
                 </View>
@@ -75,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#ECC271',
     textAlign: 'center',
+    marginTop: 5,
   },
   timeTitle: {
     fontWeight: '800',

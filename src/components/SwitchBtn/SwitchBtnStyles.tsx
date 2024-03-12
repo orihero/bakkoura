@@ -7,10 +7,11 @@ export const styles = StyleSheet.create({
     borderColor: '#ECC271',
     paddingLeft: 5,
     paddingRight: 20,
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 40,
     flexDirection: 'row',
     gap: 15,
+    color: '#000',
   },
   title: {
     fontSize: 18,

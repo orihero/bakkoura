@@ -1,5 +1,5 @@
+import EventsScreen from '../../screens/calendar/EventsScreen';
 import HomeScreen from '../../screens/home/HomeScreen';
-import MarketScreen from '../../screens/market/MarketScreen';
 import MessengerScreen from '../../screens/messenger/MessengerScreen';
 import ProjectTimer from '../../screens/projectTimer/ProjectTimer';
 import StopWatch from '../../screens/stopWatch/StopWatch';
@@ -17,15 +17,15 @@ export const bottomTabBarOptions = {
   list: [
     {
       index: 0,
-      tabName: APP_ROUTES.HOME_START,
-      component: HomeScreen,
-      buttonLabel: 'Home',
+      tabName: APP_ROUTES.TIMER,
+      component: TimerScreen,
+      buttonLabel: 'Timer',
     },
     {
       index: 1,
-      tabName: APP_ROUTES.MARKET,
-      component: MarketScreen,
-      buttonLabel: 'Market',
+      tabName: APP_ROUTES.EVENTS_SCREEN,
+      component: EventsScreen,
+      buttonLabel: 'Calendar',
     },
     {
       index: 2,
@@ -41,9 +41,9 @@ export const bottomTabBarOptions = {
     },
     {
       index: 4,
-      tabName: APP_ROUTES.TIMER,
-      component: TimerScreen,
-      buttonLabel: 'Timer',
+      tabName: APP_ROUTES.HOME_START,
+      component: HomeScreen,
+      buttonLabel: 'Home',
     },
     {
       index: 5,

@@ -1,7 +1,7 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {Images} from '../../../../assets';
+import {Text, View, StyleSheet, ImageBackground} from 'react-native';
+import {BG, Images} from '../../../../assets';
 import RN from '../../../../components/RN';
 import TextView from '../../../../components/Text/Text';
 import {APP_ROUTES} from '../../../routes';
@@ -32,8 +32,8 @@ const MyTabbar: React.FC<BottomTabBarProps> = ({
       switch (label as APP_ROUTES) {
         case APP_ROUTES.HOME_START:
           return <Images.Svg.homeIcon />;
-        case APP_ROUTES.MARKET:
-          return <Images.Svg.marketIcon />;
+        case APP_ROUTES.EVENTS_SCREEN:
+          return <Images.Svg.calendarIcon />;
         case APP_ROUTES.MESSENGER:
           return <Images.Svg.messengerIcon />;
         case APP_ROUTES.TODOTIMER:
@@ -55,7 +55,7 @@ const MyTabbar: React.FC<BottomTabBarProps> = ({
         target: route.key,
         canPreventDefault: true,
       });
-
+      bottomSheetRef.current?.collapse();
       if (!event.defaultPrevented) {
         navigation.navigate({name: route.name, merge: true} as any);
       }
@@ -83,10 +83,10 @@ const MyTabbar: React.FC<BottomTabBarProps> = ({
   const renderTabBars = () =>
     state.routes.map((route, index) => renderTabBar({route, index}));
 
-  const bottomSheetModalRef = React.useRef<BottomSheet>(null);
+  const bottomSheetRef = React.useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = React.useMemo(() => ['14%', '80%'], []);
+  const snapPoints = React.useMemo(() => ['13.5%', '80%'], []);
 
   return (
     <BottomSheet
@@ -96,14 +96,17 @@ const MyTabbar: React.FC<BottomTabBarProps> = ({
         </RN.TouchableOpacity>
       )}
       snapPoints={snapPoints}
-      ref={bottomSheetModalRef}
+      ref={bottomSheetRef}
       style={styles.bottomSheet}>
       <BottomSheetView style={styles.container}>
-        <RN.View style={styles.borderContainer}>
+        <RN.ImageBackground
+          source={BG.bottomSheetBg}
+          resizeMode="stretch"
+          style={styles.borderContainer}>
           <RN.View style={styles.renderTabBarsContainer}>
             {renderTabBars()}
           </RN.View>
-        </RN.View>
+        </RN.ImageBackground>
       </BottomSheetView>
     </BottomSheet>
   );

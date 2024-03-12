@@ -1,13 +1,30 @@
 import React from 'react';
 import RN from '../../components/RN';
+import {StyleSheet} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import TextView from '../../components/Text/Text';
 
 const WorldTime = () => {
   return (
-    <RN.View flex={1}>
-      <TextView title="WorldTime" />
-    </RN.View>
+    <LinearGradient
+      style={styles.gradient}
+      colors={['#323D45', '#1B2024', '#0C0C0C']}>
+      <RN.View style={styles.container}>
+        <TextView title="Messenger screen" />
+      </RN.View>
+    </LinearGradient>
   );
 };
 
 export default WorldTime;
+
+const styles = StyleSheet.create({
+  gradient: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
