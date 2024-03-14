@@ -27,6 +27,8 @@ export enum APP_ROUTES {
   PROJECT_TIMER = 'ProjectTimer',
   WORLD_TIME = 'WorldTime',
   STOP_WATCH = 'StopWatch',
+  ALARM_SCREEN = 'AlarmScreen',
+  METRONOME = 'MetronomeScreen',
 
   //calendar screens
   EVENTS_SCREEN = 'EventScreen',
@@ -37,4 +39,8 @@ export enum APP_ROUTES {
 
   //stress test screens
   STRESS_TEST_DURING = 'StressTestDuring',
+
+  //Alarm screens
+  NEW_ALARM_SCREEN = 'NewAlarmScreen',
+  NAME_ALARM = 'NameAlarm',
 }

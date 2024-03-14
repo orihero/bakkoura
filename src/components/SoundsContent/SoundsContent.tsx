@@ -1,3 +1,4 @@
+import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Images} from '../../assets';
@@ -5,7 +6,10 @@ import useRootStore from '../../hooks/useRootStore';
 import {SoundsData} from '../../utils/sounds';
 import HeaderContent from '../HeaderContent/HeaderContent';
 import LinearContainer from '../LinearContainer/LinearContainer';
+import ListItemCont from '../ListItemCont/ListItemCont';
 import RN from '../RN';
+import SimpleSwitch from '../SimpleSwitch/SimpleSwitch';
+import StartBtn from '../StopStartBtn/StopStartBtn';
 
 type Props = {
   modalVisible?: boolean;
@@ -16,6 +20,14 @@ type Props = {
   onSelect?: () => void;
   data?: any[];
   onItemPress?: () => void;
+  myMusic?: boolean;
+  myMusicValue?: string;
+  vibral?: boolean;
+  vibrationActive?: boolean;
+  setVibrationActive?: () => void;
+  okBtn?: boolean;
+  okBtnText?: string;
+  onPressBtn?: () => void;
 };
 
 const Item = ({data, title, active, index, onPress}) => (
@@ -48,6 +60,13 @@ const SoundsContent: React.FC<Props> = ({
   headerTitle,
   data,
   onItemPress,
+  myMusic,
+  vibral,
+  vibrationActive,
+  setVibrationActive,
+  okBtn,
+  onPressBtn,
+  okBtnText,
 }) => {
   return (
     <RN.Modal
@@ -84,7 +103,34 @@ const SoundsContent: React.FC<Props> = ({
                   )}
                 />
               </RN.View>
+              <RN.View style={styles.more}>
+                {vibral ? (
+                  <RN.View style={styles.eventsTypeList}>
+                    <RN.View style={styles.listItem}>
+                      <RN.Text style={styles.listItemText}>
+                        Vibro-signal
+                      </RN.Text>
+                      <SimpleSwitch
+                        active={vibrationActive}
+                        handlePress={setVibrationActive}
+                      />
+                    </RN.View>
+                  </RN.View>
+                ) : null}
+                {myMusic ? (
+                  <ListItemCont title="My music" value="Tiesto" backBlack />
+                ) : null}
+              </RN.View>
             </RN.View>
+            {okBtn ? (
+              <StartBtn
+                primary
+                subWidth={70}
+                elWidth={55}
+                text={okBtnText}
+                onPress={onPressBtn}
+              />
+            ) : null}
           </RN.View>
         }
       />
@@ -92,11 +138,11 @@ const SoundsContent: React.FC<Props> = ({
   );
 };
 
-export default SoundsContent;
+export default observer(SoundsContent);
 
 const styles = RN.StyleSheet.create({
   centeredView: {
-    flex: 1,
+    height: '90%',
   },
   modalView: {
     width: '100%',
@@ -117,6 +163,7 @@ const styles = RN.StyleSheet.create({
     padding: 10,
     backgroundColor: '#0D0D0D',
     borderRadius: 6,
+    marginBottom: 5,
   },
   item: {
     flexDirection: 'row',
@@ -143,5 +190,27 @@ const styles = RN.StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ECC271',
     borderRadius: 10,
+  },
+
+  eventsTypeList: {
+    backgroundColor: '#0D0D0D',
+    borderRadius: 3,
+    paddingHorizontal: 5,
+    marginTop: 5,
+  },
+  listItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+    height: 60,
+    width: '100%',
+  },
+  listItemText: {
+    color: '#7D7D7D',
+    fontSize: 16,
+  },
+  more: {
+    gap: 5,
   },
 });

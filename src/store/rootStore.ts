@@ -1,5 +1,6 @@
 import {makeAutoObservable} from 'mobx';
 import {createContext} from 'react';
+import {AlarmStore} from './alarm/Alarm';
 import {AuthStore} from './auth/authStore';
 import {CalendarStore} from './calendar/Calendar';
 import {StressTestStore} from './stressTest/StressTest';
@@ -10,6 +11,7 @@ export class RootStore {
   calendarStore: CalendarStore;
   authStore: AuthStore;
   stressTestStore: StressTestStore;
+  alarmStore: AlarmStore;
 
   constructor() {
     makeAutoObservable(this);
@@ -17,6 +19,7 @@ export class RootStore {
     this.calendarStore = new CalendarStore(this);
     this.authStore = new AuthStore(this);
     this.stressTestStore = new StressTestStore(this);
+    this.alarmStore = new AlarmStore(this);
   }
 }
 const rootStore = new RootStore();

@@ -8,7 +8,7 @@ type componentNameProps = {
   onPress?: () => void;
   subWidth?: number | string;
   elWidth?: number | string;
-  textSize?: string;
+  textSize?: string | any;
 };
 
 const StartBtn = (props: componentNameProps) => {
@@ -37,7 +37,11 @@ const StartBtn = (props: componentNameProps) => {
           />
         </>
       )}
-      <Text style={props.primary ? styles.primaryText : styles.outlineText}>
+      <Text
+        style={[
+          props.primary ? styles.primaryText : styles.outlineText,
+          {fontSize: props.textSize},
+        ]}>
         {props.text}
       </Text>
     </TouchableOpacity>

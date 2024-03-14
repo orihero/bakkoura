@@ -17,6 +17,8 @@ import {observer} from 'mobx-react-lite';
 import useRootStore from '../hooks/useRootStore';
 import LanguageScreen from '../screens/LanguageScreen/LanguageScreen';
 import StressTestDuring from '../screens/stressTest/StressTestDuring/StressTestDuring';
+import NewAlarmScreen from '../screens/alarm/NewAlarm';
+import NameAlarm from '../screens/alarm/NameAlarm';
 
 const Stack = createStackNavigator();
 
@@ -127,6 +129,20 @@ const AppNavigator = () => {
         <Stack.Screen
           name={APP_ROUTES.STRESS_TEST_DURING}
           component={StressTestDuring}
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name={APP_ROUTES.NEW_ALARM_SCREEN}
+          component={NewAlarmScreen}
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name={APP_ROUTES.NAME_ALARM}
+          component={NameAlarm}
           options={{
             headerTitleAlign: 'center',
           }}

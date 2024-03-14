@@ -1,11 +1,10 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import LinearContainer from '../../components/LinearContainer/LinearContainer';
 import RN from '../../components/RN';
 import TextView from '../../components/Text/Text';
 
-const MarketScreen = () => {
+const Metronome = () => {
   return (
     <LinearContainer
       children={
@@ -17,12 +16,9 @@ const MarketScreen = () => {
   );
 };
 
-export default MarketScreen;
+export default Metronome;
 
 const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
