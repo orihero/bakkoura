@@ -40,156 +40,152 @@ type Props = {
   label?: string;
 };
 
-const List = memo(
-  ({
-    data,
-    itemHeight,
-    selectedValue,
-    onChange,
-    initialScrollIndex,
-    style,
-    listItemStyle,
-    separatorColor,
-    flatListProps = {},
-    label,
-  }: Props) => {
-    const scrollY = useRef(new Animated.Value(0)).current;
-    const {flatListStyle, iosTextVerticalCenter, textStyle, dividerStyle} =
-      useMemo(
-        () => ({
-          flatListStyle: {height: itemHeight * NUMBER_OF_ITEMS},
-          iosTextVerticalCenter: {lineHeight: itemHeight},
-          textStyle: {height: itemHeight},
-          dividerStyle: {
-            height: itemHeight,
-            marginVertical: itemHeight * 2,
-            ...(separatorColor ? {borderColor: separatorColor} : {}),
-          },
+const List = ({
+  data,
+  itemHeight,
+  selectedValue,
+  onChange,
+  initialScrollIndex,
+  style,
+  listItemStyle,
+  separatorColor,
+  flatListProps = {},
+  label,
+}: Props) => {
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const {flatListStyle, iosTextVerticalCenter, textStyle, dividerStyle} =
+    useMemo(
+      () => ({
+        flatListStyle: {height: itemHeight * NUMBER_OF_ITEMS},
+        iosTextVerticalCenter: {lineHeight: itemHeight},
+        textStyle: {height: itemHeight},
+        dividerStyle: {
+          height: itemHeight,
+          marginVertical: itemHeight * 2,
+          ...(separatorColor ? {borderColor: separatorColor} : {}),
+        },
+      }),
+      [itemHeight, separatorColor],
+    );
+
+  const calculateStyle = (i: number) => {
+    const arr = new Array(data.length).fill(1);
+    const mainStyle = 1;
+    const secondaryStyle = 0.3;
+    const thirdlyStyle = 0.1;
+    const opacity = scrollY.interpolate({
+      inputRange: [...arr.map((_, index) => index * itemHeight)],
+      outputRange: [
+        ...arr.map((_, index) => {
+          switch (i) {
+            case index + 1:
+              return secondaryStyle;
+            case index + 2:
+              return mainStyle;
+            default:
+              return thirdlyStyle;
+          }
         }),
-        [itemHeight, separatorColor],
-      );
+      ],
+      extrapolate: 'clamp',
+    }) as unknown as number;
+    return {opacity};
+  };
 
-    const calculateStyle = (i: number) => {
-      const arr = new Array(data.length).fill(1);
-      const mainStyle = 1;
-      const secondaryStyle = 0.3;
-      const thirdlyStyle = 0.1;
-      const opacity = scrollY.interpolate({
-        inputRange: [...arr.map((_, index) => index * itemHeight)],
-        outputRange: [
-          ...arr.map((_, index) => {
-            switch (i) {
-              case index + 1:
-                return secondaryStyle;
-              case index + 2:
-                return mainStyle;
-              default:
-                return thirdlyStyle;
-            }
-          }),
-        ],
-        extrapolate: 'clamp',
-      }) as unknown as number;
-      return {opacity};
-    };
+  const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    data: _data,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    snapToInterval,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    decelerationRate,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    showsVerticalScrollIndicator,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    style: _style,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    initialScrollIndex: _initialScrollIndex,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    keyExtractor,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    renderItem,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    getItemLayout,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onScroll,
+    ...rest
+  } = flatListProps;
 
-    const {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      data: _data,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      snapToInterval,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      decelerationRate,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      showsVerticalScrollIndicator,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      style: _style,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      initialScrollIndex: _initialScrollIndex,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      keyExtractor,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      renderItem,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      getItemLayout,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      onScroll,
-      ...rest
-    } = flatListProps;
-
-    return (
-      <View style={[styles.container, style]}>
-        <Animated.FlatList
-          data={data}
-          snapToInterval={itemHeight}
-          decelerationRate="fast"
-          showsVerticalScrollIndicator={false}
-          style={flatListStyle}
-          initialScrollIndex={initialScrollIndex}
-          keyExtractor={item => `${item.id}`}
-          renderItem={({item, index}) => {
-            return (
-              <Animated.Text
-                style={[
-                  styles.text,
-                  textStyle,
-                  Platform.OS === 'android'
-                    ? styles.androidTextVerticalCenter
-                    : iosTextVerticalCenter,
-                  calculateStyle(index),
-                  listItemStyle,
-                ]}>
-                {item.text}
-              </Animated.Text>
-            );
-          }}
-          getItemLayout={(_, index) => ({
-            length: itemHeight,
-            offset: itemHeight * index,
-            index,
-          })}
-          onScroll={Animated.event(
-            [
-              {
-                nativeEvent: {
-                  contentOffset: {
-                    y: scrollY,
-                  },
+  return (
+    <View style={[styles.container, style]}>
+      <Animated.FlatList
+        data={data}
+        snapToInterval={itemHeight}
+        decelerationRate="fast"
+        showsVerticalScrollIndicator={false}
+        style={flatListStyle}
+        initialScrollIndex={initialScrollIndex}
+        keyExtractor={item => `${item.id}`}
+        renderItem={({item, index}) => {
+          return (
+            <Animated.Text
+              style={[
+                styles.text,
+                textStyle,
+                Platform.OS === 'android'
+                  ? styles.androidTextVerticalCenter
+                  : iosTextVerticalCenter,
+                calculateStyle(index),
+                listItemStyle,
+              ]}>
+              {item.text}
+            </Animated.Text>
+          );
+        }}
+        getItemLayout={(_, index) => ({
+          length: itemHeight,
+          offset: itemHeight * index,
+          index,
+        })}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: {
+                contentOffset: {
+                  y: scrollY,
                 },
               },
-            ],
-            {
-              useNativeDriver: true,
-              listener: (e: any) => {
-                const index = Math.round(
-                  e.nativeEvent.contentOffset.y / itemHeight,
-                );
-                const value = data[index + 2]?.value ?? -1;
-                if (value !== -1) {
-                  selectedValue.current = value;
-                  onChange();
-                }
-              },
             },
-          )}
-          {...rest}
-        />
-        <RN.View
-          pointerEvents="box-none"
-          style={[styles.divider, dividerStyle]}>
-          {/* <LinearGradient
+          ],
+          {
+            useNativeDriver: true,
+            listener: (e: any) => {
+              const index = Math.round(
+                e.nativeEvent.contentOffset.y / itemHeight,
+              );
+              const value = data[index + 2]?.value ?? -1;
+              if (value !== -1) {
+                selectedValue.current = value;
+                onChange();
+              }
+            },
+          },
+        )}
+        {...rest}
+      />
+      <RN.View pointerEvents="box-none" style={[styles.divider, dividerStyle]}>
+        {/* <LinearGradient
           pointerEvents="box-none"
           style={[styles.divider, dividerStyle]}
           //   start={{x: 0, y: 0}}
           //   end={{x: 1, y: 0}}
           colors={[]}> */}
-          <RN.Text style={styles.label}>{label}</RN.Text>
-          {/* </LinearGradient> */}
-        </RN.View>
-      </View>
-    );
-  },
-);
+        <RN.Text style={styles.label}>{label}</RN.Text>
+        {/* </LinearGradient> */}
+      </RN.View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

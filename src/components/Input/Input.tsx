@@ -4,13 +4,17 @@ import {COLORS} from '../../utils/colors';
 
 type Props = {
   placeholder: string;
+  value?: any;
+  onChangeText?: (e) => void;
 };
 
-const Input: React.FC<Props> = ({placeholder}) => {
+const Input: React.FC<Props> = ({placeholder, value, onChangeText}) => {
   return (
     <TextInput
       placeholderTextColor={COLORS.grey}
       style={styles.input}
+      onChangeText={onChangeText}
+      value={value}
       placeholder={placeholder}></TextInput>
   );
 };

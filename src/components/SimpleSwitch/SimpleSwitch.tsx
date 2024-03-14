@@ -8,29 +8,20 @@ import Animated, {
 } from 'react-native-reanimated';
 import RN from '../RN';
 type Props = {
-  title?: string;
-  _title?: string;
-  isSwitch?: boolean;
   handlePress?: () => void;
-  back?: boolean;
+  active?: boolean;
 };
 
-const SwitchContain: React.FC<Props> = ({
-  title,
-  isSwitch,
-  handlePress,
-  back,
-  _title,
-}) => {
-  const translateX = useSharedValue(0);
+const SimpleSwitch: React.FC<Props> = ({handlePress, active}) => {
+  const translateX = useSharedValue(20);
 
   const handlePresss = () => {
-    if (back) {
+    if (!active) {
       translateX.value += 20;
     } else {
       translateX.value -= 20;
     }
-    back = !back;
+    active = !active;
   };
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -45,32 +36,31 @@ const SwitchContain: React.FC<Props> = ({
       }}>
       <RN.View style={[styles.box]}>
         <Animated.View style={[styles.animatedBox, animatedStyles]}>
-          <LinearGradient colors={['#ECC271', '#7F642E']} style={styles.linear}>
-            <RN.Text style={styles.title}>{back ? title : _title}</RN.Text>
-          </LinearGradient>
+          <LinearGradient
+            colors={['#ECC271', '#7F642E']}
+            style={styles.linear}></LinearGradient>
         </Animated.View>
       </RN.View>
     </RN.TouchableOpacity>
   );
 };
 
-export default observer(SwitchContain);
+export default observer(SimpleSwitch);
 
 const styles = RN.StyleSheet.create({
   container: {
-    width: 95,
+    width: 60,
   },
   box: {
     backgroundColor: '#121212',
-    width: 95,
+    width: 50,
     height: 22,
     borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)',
   },
   animatedBox: {
     position: 'absolute',
-  },
-  title: {
-    width: 'auto',
   },
   linear: {
     paddingHorizontal: 10,
@@ -79,7 +69,8 @@ const styles = RN.StyleSheet.create({
     borderRadius: 30,
     borderColor: '#ECC271',
     borderWidth: 1,
-    width: 75,
+    minHeight: 30,
+    minWidth: 30,
     top: -5,
     alignItems: 'center',
   },

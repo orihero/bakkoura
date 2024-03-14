@@ -36,6 +36,11 @@ import panda from './svg/panda.svg';
 import yellowPanda from './svg/yellowPanda.svg';
 import yellowPanda1 from './svg/yellowPanda1.svg';
 import stressTest from './svg/stressTest.svg';
+import alarmIcon from './svg/alarm icon.svg';
+import metronomeIcon from './svg/metronome.svg';
+import pomodoroIcon from './svg/pomod icon.svg';
+import deleteIcon from './svg/DELETE.svg';
+import whiteDelete from './svg/whiteDELETE.svg';
 
 export const Images = {
   Svg: {
@@ -77,6 +82,11 @@ export const Images = {
     yellowPanda,
     yellowPanda1,
     stressTest,
+    alarmIcon,
+    pomodoroIcon,
+    metronomeIcon,
+    deleteIcon,
+    whiteDelete,
   },
   Img: {
     pandaTimer: require('./images/pandaTimer.png'),

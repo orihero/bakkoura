@@ -10,7 +10,7 @@ const StopWatch = () => {
       style={styles.gradient}
       colors={['#323D45', '#1B2024', '#0C0C0C']}>
       <RN.View style={styles.container}>
-        <TextView title="Messenger screen" />
+        <TextView title="Stop watch screen" />
       </RN.View>
     </LinearGradient>
   );

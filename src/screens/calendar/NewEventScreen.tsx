@@ -3,6 +3,7 @@ import {Switch} from '@rneui/base';
 import {observer} from 'mobx-react-lite';
 import React, {useEffect, useState} from 'react';
 import {Images} from '../../assets';
+import ArrowLeftBack from '../../components/ArrowLeftBack/ArrowLeftBack';
 import HeaderContent from '../../components/HeaderContent/HeaderContent';
 import {KeyboardAvoidingView} from '../../components/KeyboardAvoidingView';
 import LinearContainer from '../../components/LinearContainer/LinearContainer';
@@ -196,11 +197,7 @@ const NewEventScreen = () => {
             data={soundsData}
             onItemPress={onSoundItemPress as never}
             headerLeftItem={
-              <RN.TouchableOpacity
-                hitSlop={HITSLOP}
-                onPress={() => setSound(e => !e)}>
-                <Images.Svg.arrowLeft />
-              </RN.TouchableOpacity>
+              <ArrowLeftBack onPress={() => setSound(e => !e)} title="Back" />
             }
             onClose={() => setSound(e => !e)}
             modalVisible={sound}

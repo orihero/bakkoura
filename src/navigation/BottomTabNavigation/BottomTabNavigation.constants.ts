@@ -1,6 +1,9 @@
+import AlarmScreen from '../../screens/alarm/AlarmScreen';
 import EventsScreen from '../../screens/calendar/EventsScreen';
 import HomeScreen from '../../screens/home/HomeScreen';
+import MarketScreen from '../../screens/market/MarketScreen';
 import MessengerScreen from '../../screens/messenger/MessengerScreen';
+import Metronome from '../../screens/metronome/Metronome';
 import ProjectTimer from '../../screens/projectTimer/ProjectTimer';
 import StopWatch from '../../screens/stopWatch/StopWatch';
 import StressTest from '../../screens/stressTest/StressTest';
@@ -36,9 +39,9 @@ export const bottomTabBarOptions = {
     },
     {
       index: 3,
-      tabName: APP_ROUTES.TODOTIMER,
-      component: ToDoTimer,
-      buttonLabel: 'To do timer',
+      tabName: APP_ROUTES.ALARM_SCREEN,
+      component: AlarmScreen,
+      buttonLabel: 'Alarm',
     },
     {
       index: 4,
@@ -62,6 +65,30 @@ export const bottomTabBarOptions = {
       index: 7,
       tabName: APP_ROUTES.STOP_WATCH,
       component: StopWatch,
+      buttonLabel: 'Stop watch',
+    },
+    {
+      index: 8,
+      tabName: APP_ROUTES.METRONOME,
+      component: Metronome,
+      buttonLabel: 'Metronome',
+    },
+    {
+      index: 9,
+      tabName: APP_ROUTES.MESSENGER,
+      component: MessengerScreen,
+      buttonLabel: 'Stop watch',
+    },
+    {
+      index: 10,
+      tabName: APP_ROUTES.MARKET,
+      component: MarketScreen,
+      buttonLabel: 'Stop watch',
+    },
+    {
+      index: 11,
+      tabName: APP_ROUTES.TODOTIMER,
+      component: ToDoTimer,
       buttonLabel: 'Stop watch',
     },
   ],

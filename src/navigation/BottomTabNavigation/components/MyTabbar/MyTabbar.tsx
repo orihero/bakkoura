@@ -36,8 +36,8 @@ const MyTabbar: React.FC<BottomTabBarProps> = ({
           return <Images.Svg.calendarIcon />;
         case APP_ROUTES.STRESS_TEST:
           return <Images.Svg.stressTest />;
-        case APP_ROUTES.TODOTIMER:
-          return <Images.Svg.todoIcon />;
+        case APP_ROUTES.ALARM_SCREEN:
+          return <Images.Svg.alarmIcon />;
         case APP_ROUTES.TIMER:
           return <Images.Svg.timerIcon />;
         case APP_ROUTES.PROJECT_TIMER:
