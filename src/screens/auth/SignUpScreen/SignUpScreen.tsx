@@ -20,8 +20,16 @@ const SignUpScreen = () => {
       children={
         <RN.View style={styles.container}>
           <HeaderContent
-            leftItem={<Images.Svg.btsRightLinear style={{marginTop: 10}} />}
-            rightItem={<Images.Svg.en />}
+            leftItem={<Images.Svg.btsRightLinear />}
+            rightItem={
+              <RN.TouchableOpacity
+                style={styles.localize}
+                onPress={() =>
+                  navigation.navigate(APP_ROUTES.LANGUAGE_SCREEN as never)
+                }>
+                <Images.Svg.en width={50} />
+              </RN.TouchableOpacity>
+            }
           />
           <TextView title="Sign up" textAlign="center" />
           <RN.View style={styles.formBox}>
@@ -64,6 +72,9 @@ const styles = StyleSheet.create({
   // scrollView: {
   //   paddingVertical: 20,
   // },
+  localize: {
+    marginTop: -5,
+  },
   container: {
     paddingHorizontal: 10,
     height: WINDOW_HEIGHT - 40,

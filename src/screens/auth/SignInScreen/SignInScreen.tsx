@@ -27,9 +27,9 @@ const SignInScreen = () => {
       children={
         <RN.ScrollView>
           <View style={styles.container}>
-            <View style={styles.light}>
+            {/* <View style={styles.light}>
               <Image source={BG.light} />
-            </View>
+            </View> */}
             <HeaderContent
               leftItem={
                 <View style={styles.logo}>
@@ -118,17 +118,19 @@ const styles = StyleSheet.create({
     // paddingTop: 30,
   },
   logo: {},
-  localize: {},
+  localize: {
+    marginTop: -5,
+  },
   titleBox: {
     marginTop: 50,
     gap: 10,
   },
-  light: {
-    position: 'absolute',
-    top: 20,
-    left: 100,
-    transform: [{translateX: -75}],
-  },
+  // light: {
+  //   position: 'absolute',
+  //   top: -30,
+  //   left: 100,
+  //   transform: [{translateX: -75}],
+  // },
   formBox: {
     alignItems: 'flex-start',
     gap: 8,

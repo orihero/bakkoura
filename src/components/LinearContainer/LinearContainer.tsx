@@ -14,14 +14,14 @@ const LinearContainer: React.FC<Props> = ({children}) => {
       colors={['#323D45', '#1B2024', '#020202']}
       style={styles.container}>
       <RN.View style={styles.borderImage}>
-        <Images.Svg.borderBg
+        {/* <Images.Svg.borderBg
           style={{
             position: 'absolute',
             left: 10,
             top: 25,
           }}
           width={'100%'}
-        />
+        /> */}
         {children}
       </RN.View>
     </LinearGradient>

@@ -1703,6 +1703,11 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
+"@react-native-community/geolocation@^3.0.4":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/geolocation/-/geolocation-3.2.0.tgz#d5350339deeb775a748b5cbba2e25cf1352e7a28"
+  integrity sha512-WkOjeDRBOdbor6YlKusEPkBx64x+Qf4enldF2tvCHyaXr0YcqdWXPZMMePIXUvQvyyuP5atnfPT5D2Q9VSx5mQ==
+
 "@react-native/assets-registry@0.73.1":
   version "0.73.1"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.73.1.tgz#e2a6b73b16c183a270f338dc69c36039b3946e85"
@@ -3133,6 +3138,11 @@ decode-uri-component@^0.2.2:
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
   integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
+deconstruct-number-format@~0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/deconstruct-number-format/-/deconstruct-number-format-0.0.1.tgz#fbb5d7dcd45bd2b2fa0e579ed91b59c7e29b386a"
+  integrity sha512-DNkCIzxbEHIbSdC+HvN12A2te/+X7MBOvEEetxQXUHW0B9OQCgdzR5JR/dkAPr7GPOPVGGxGx+YRh0gUtJ5FWA==
+
 dedent@^1.0.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-1.5.1.tgz#4f3fc94c8b711e9bb2800d185cd6ad20f2a90aff"
@@ -3832,6 +3842,19 @@ for-each@^0.3.3:
   integrity sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==
   dependencies:
     is-callable "^1.1.3"
+
+format-number-with-string@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/format-number-with-string/-/format-number-with-string-0.0.2.tgz#eb96e8f1640c921f7414466ccf8dcb3bb6802cba"
+  integrity sha512-vM6k7XP/w4L1wSVXPFgbPcXZ7Rk4RgcwYMkuskVV1XhGTt74Rvk859xXIyNu5yvMSObdEkyEy/RJJhfw7vB38g==
+  dependencies:
+    deconstruct-number-format "~0.0.1"
+    format-number "^2.0.1"
+
+format-number@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/format-number/-/format-number-2.0.2.tgz#8be2aa6fa6ef5ec43830892b1daee72705f9b462"
+  integrity sha512-ibyz0JpwyGjdb/7iOAzo6YeZuA5Z6vYFGGiw+5a11qduwHG669BrNIXm6BDqe5SideoPAi9PRXqGTcderFjNxQ==
 
 fresh@0.5.2:
   version "0.5.2"
@@ -6058,6 +6081,13 @@ react-native-vector-icons@^10.0.3:
   dependencies:
     prop-types "^15.7.2"
     yargs "^16.1.1"
+
+react-native-weather-api@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-weather-api/-/react-native-weather-api-3.4.0.tgz#0b368be5a4857a8c0e48ea237a0da2794ba9efca"
+  integrity sha512-Yh7L+1cGYVj7Ro86iYXx3/heOcR2ecEWWLhO36jMTJNPUSNktlj/1O6ayyAYkdEer1ktc3ljC/6P0NZqh8Kg7A==
+  dependencies:
+    "@react-native-community/geolocation" "^3.0.4"
 
 react-native@^0.73.4:
   version "0.73.4"

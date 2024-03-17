@@ -77,19 +77,19 @@ export const bottomTabBarOptions = {
       index: 9,
       tabName: APP_ROUTES.MESSENGER,
       component: MessengerScreen,
-      buttonLabel: 'Stop watch',
+      buttonLabel: 'Messenger',
     },
     {
       index: 10,
       tabName: APP_ROUTES.MARKET,
       component: MarketScreen,
-      buttonLabel: 'Stop watch',
+      buttonLabel: 'Market',
     },
     {
       index: 11,
       tabName: APP_ROUTES.TODOTIMER,
       component: ToDoTimer,
-      buttonLabel: 'Stop watch',
+      buttonLabel: 'Todo Timer',
     },
   ],
 };

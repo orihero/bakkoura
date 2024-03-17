@@ -8,7 +8,7 @@ export class AuthStore {
     this.root = root;
   }
 
-  isAuthorized = false;
+  isAuthorized = true;
 
   setAuthorized = () => {
     runInAction(() => {

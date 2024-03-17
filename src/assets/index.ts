@@ -41,6 +41,12 @@ import metronomeIcon from './svg/metronome.svg';
 import pomodoroIcon from './svg/pomod icon.svg';
 import deleteIcon from './svg/DELETE.svg';
 import whiteDelete from './svg/whiteDELETE.svg';
+import worldWatch from './svg/worldWatch.svg';
+import worldWatchHourline from './svg/hourLine.svg';
+import worldWatchMinutline from './svg/minutLine.svg';
+import searchIcon from './svg/search.svg';
+import stopwatch from './svg/stopwatch.svg';
+import circleIcon from './svg/circleIcon.svg';
 
 export const Images = {
   Svg: {
@@ -87,9 +93,16 @@ export const Images = {
     metronomeIcon,
     deleteIcon,
     whiteDelete,
+    worldWatch,
+    worldWatchHourline,
+    worldWatchMinutline,
+    searchIcon,
+    stopwatch,
+    circleIcon,
   },
   Img: {
     pandaTimer: require('./images/pandaTimer.png'),
+    stopwatch: require('./images/stopwatch.png'),
   },
 };
 
@@ -99,7 +112,6 @@ export const BG = {
   welcome3: require('./images/welcome3.png'),
   welcome4: require('./images/welcome4.png'),
   welcomeBg: require('./images/welcomeBg.png'),
-  borderBg: require('./images/borderBg.png'),
   light: require('./images/light.png'),
   bottomSheetBg: require('./images/bottomSheetBg.png'),
   duringTimerBg: require('./images/duringTimerBg.png'),

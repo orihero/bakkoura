@@ -19,6 +19,7 @@ import LanguageScreen from '../screens/LanguageScreen/LanguageScreen';
 import StressTestDuring from '../screens/stressTest/StressTestDuring/StressTestDuring';
 import NewAlarmScreen from '../screens/alarm/NewAlarm';
 import NameAlarm from '../screens/alarm/NameAlarm';
+import CitesScreen from '../screens/worldTime/CitesScreen';
 
 const Stack = createStackNavigator();
 
@@ -143,6 +144,13 @@ const AppNavigator = () => {
         <Stack.Screen
           name={APP_ROUTES.NAME_ALARM}
           component={NameAlarm}
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name={APP_ROUTES.CITIES_SCREEN}
+          component={CitesScreen}
           options={{
             headerTitleAlign: 'center',
           }}
